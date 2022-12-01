@@ -3,11 +3,14 @@ import ReactDOM from "react-dom"
 import Die from "./component/die"
 export default function App (){
 
-
-    let numbers = [];
-    for(let a=0; a<10; a++){
-      numbers.push(Math.floor(Math.random()*6))
-  }
+function newDice(){
+  let numbers = [];
+  for(let a=0; a<10; a++){
+    numbers.push(Math.floor(Math.random()*6))
+}
+return numbers
+}
+const[numbers,setNumbers]= React.useState(newDice())
   const Cards= numbers.map(number=>{
     return(
       <Die number={number} />
