@@ -1,28 +1,49 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import Die from "./component/die"
+import {nanoid} from "nanoid"
 export default function App (){
 
 function newDice(){
-  let numbers = [];
+  let Dice = [];
   for(let a=0; a<10; a++){
-    numbers.push(Math.floor(Math.random()*6))
-}
-return numbers
-}
-const[numbers,setNumbers]= React.useState(newDice())
-  const Cards= numbers.map(number=>{
-    return(
-      <Die number={number} />
-    )
+    Dice.push({number:Math.floor(Math.random()*6),
+               isHeld: false,
+               id: nanoid()
+    })
   }
 
+return Dice
+}
+// function Hold(){
+//   console.log(dieState)
+
+// }
+
+
+const[dieState,setDieState]= React.useState(newDice())
+  const Cards= dieState.map(dice=>{
+    return(
+      <Die
+      // onClick={Hold}
+      key={dice.id}
+      DieNumber={dice.number}
+      isHeld={dice.isHeld}
+       />
     )
+  }
+  )
+function Roll(){
+  setDieState(newDice())
+}
 
   return(
     <div className="main">
       <div className="die-grid" >
          {Cards}
+      </div>
+      <div>
+        <button onClick={Roll}>Roll</button>
       </div>
     </div>
   )

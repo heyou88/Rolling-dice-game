@@ -6,6 +6,7 @@ body {
   margin: 0;
   background-color: pink;
   padding: 100px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .main{
@@ -20,10 +21,11 @@ margin-right: auto;
 display:flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
 }
 
 .die-face{
-background-color: #D6E4E5;
+
 border-radius: 10%;
 height: 60px;
 width: 60px;
@@ -34,6 +36,18 @@ justify-content: center;
 align-items: center;
 cursor: pointer;
 }
+.die-face{
+  background-color: green;
+  border-radius: 10%;
+  height: 60px;
+  width: 60px;
+  box-shadow:4px 4px 2px gray ;
+  padding:0px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  }
 
 .die-grid{
   display:grid;
@@ -43,8 +57,25 @@ cursor: pointer;
   row-gap: 15px;
 }
 
-
-
+button{
+  height: 60px;
+  width: 140px;
+  border-radius: 5px;
+  background-color:  #7D1E6A;
+  border-width: 0px;
+  margin-top: 0;
+  /* box-shadow: 3px 3px 3px 3px #D58BDD; */
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  display: inline-block;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+button:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
