@@ -15,20 +15,32 @@ function newDice(){
 
 return Dice
 }
-// function Hold(){
-//   console.log(dieState)
+ function Hold(id){
+  setDieState(prevState=>
+    prevState.map(dice=> {
+      return id === dice.id? {...dice,isHeld:!dice.isHeld}:dice
 
-// }
+
+
+
+    })
+
+
+  )
+  console.log(id)
+
+ }
 
 
 const[dieState,setDieState]= React.useState(newDice())
   const Cards= dieState.map(dice=>{
     return(
       <Die
-      // onClick={Hold}
+      Hold={()=>Hold(dice.id,dice.isHeld)}
       key={dice.id}
       DieNumber={dice.number}
       isHeld={dice.isHeld}
+
        />
     )
   }
