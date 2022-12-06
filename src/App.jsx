@@ -1,7 +1,9 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import Die from "./component/die"
 import {nanoid} from "nanoid"
+// import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
+// import  useEffect  from 'react';
 export default function App (){
 
 function newDice(){
@@ -15,20 +17,13 @@ function newDice(){
 
 return Dice
 }
- function Hold(id){
+ function Hold(id,held){
   setDieState(prevState=>
     prevState.map(dice=> {
       return id === dice.id? {...dice,isHeld:!dice.isHeld}:dice
 
-
-
-
     })
-
-
   )
-  console.log(id)
-
  }
 
 
@@ -45,53 +40,38 @@ const[dieState,setDieState]= React.useState(newDice())
     )
   }
   )
-function Roll(){
-  setDieState(newDice())
-}
+  const[tenzies,setTenzies]=React.useState(false)
+  function won(){
+   setTenzies(()=>dieState.every((dice,index,array) => dice.number === array[0].number&&dice.isHeld))?true:false
+  //  setTenzies(dieState.every((dice,index,array)=>{dice.number==array[0].number&&dice.isHeld})
+    tenzies&&console.log("you won")
+  }
+  React.useEffect(function(){won()},[dieState])
 
+
+function Roll(){
+  setDieState(prevState=>
+    prevState.map(dice=> {
+      return dice.isHeld?dice:{...dice,number:Math.floor(Math.random()*6)}
+    })
+  )
+}
+function NewGame(){
+  console.log("newgame")
+   setDieState(newDice())
+}
+// const { width, height } = useWindowSize()
   return(
     <div className="main">
+      {tenzies&&<Confetti/>}
+      <h1 className="title">Tenzies</h1>
+      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <div className="die-grid" >
          {Cards}
       </div>
       <div>
-        <button onClick={Roll}>Roll</button>
+        <button onClick={tenzies?NewGame:Roll}>{tenzies?"New Game":"Roll"}</button>
       </div>
     </div>
   )
 }
-
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <div className="App">
-//       <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src="/vite.svg" className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://reactjs.org" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </div>
-//   )
-// }
-
-// export default App
