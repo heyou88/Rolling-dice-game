@@ -17,7 +17,7 @@ function newDice(){
 
 return Dice
 }
- function Hold(id,held){
+ function Hold(id){
   setDieState(prevState=>
     prevState.map(dice=> {
       return id === dice.id? {...dice,isHeld:!dice.isHeld}:dice
