@@ -9,7 +9,7 @@ export default function App (){
 function newDice(){
   let Dice = [];
   for(let a=0; a<10; a++){
-    Dice.push({number:Math.floor(Math.random()*6),
+    Dice.push({number:Math.ceil(Math.random()*6),
                isHeld: false,
                id: nanoid()
     })
@@ -50,6 +50,8 @@ const[dieState,setDieState]= React.useState(newDice())
 
 
 function Roll(){
+  var audio = new Audio('./src/assets/diceshake-90280.mp3');
+  audio.play();
   setDieState(prevState=>
     prevState.map(dice=> {
       return dice.isHeld?dice:{...dice,number:Math.floor(Math.random()*6)}

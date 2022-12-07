@@ -36,7 +36,6 @@ flex-direction: column;
   text-align: center;
 }
 .die-face{
-
 border-radius: 10%;
 height: 60px;
 width: 60px;
@@ -48,7 +47,7 @@ align-items: center;
 cursor: pointer;
 }
 .die-face{
-  background-color: green;
+  background-color: #554994;
   border-radius: 10%;
   height: 60px;
   width: 60px;

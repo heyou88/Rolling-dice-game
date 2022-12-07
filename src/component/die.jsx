@@ -1,7 +1,8 @@
 import React from "react"
+
 export default function Die (props){
   const style={
-    backgroundColor: props.isHeld ? "green":"#D6E4E5"
+    backgroundColor: props.isHeld ? "#554994":"#D6E4E5"
   }
   //  function Hold(){
   //    console.log(props.DieNumber)
