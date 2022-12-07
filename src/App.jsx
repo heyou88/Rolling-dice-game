@@ -4,6 +4,7 @@ import {nanoid} from "nanoid"
 import Confetti from 'react-confetti'
 import yay from './assets/yay-6326.mp3'
 import rolling from './assets/rolling-dice-2-102706.mp3'
+import click from './assets/beep-6-96243.mp3'
 
 export default function App (){
 function newDice(){
@@ -18,6 +19,8 @@ function newDice(){
 return Dice
 }
  function Hold(id){
+  var audio = new Audio(click)
+  audio.play()
   setDieState(prevState=>
     prevState.map(dice=> {
       return id === dice.id? {...dice,isHeld:!dice.isHeld}:dice

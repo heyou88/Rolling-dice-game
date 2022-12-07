@@ -1,4 +1,5 @@
 import React from "react"
+// import click from '../assets/beep-6-96243.mp3'
 
 export default function Die (props){
   const style={
