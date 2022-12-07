@@ -50,7 +50,7 @@ const[dieState,setDieState]= React.useState(newDice())
 
 
 function Roll(){
-  var audio = new Audio('./src/assets/diceshake-90280.mp3');
+  var audio = new Audio('./src/assets/rolling-dice-2-102706.mp3');
   audio.play();
   setDieState(prevState=>
     prevState.map(dice=> {
