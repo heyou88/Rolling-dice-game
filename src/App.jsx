@@ -6,7 +6,6 @@ import yay from './assets/yay-6326.mp3'
 import rolling from './assets/rolling-dice-2-102706.mp3'
 
 export default function App (){
-
 function newDice(){
   let Dice = [];
   for(let a=0; a<10; a++){
@@ -47,11 +46,11 @@ const[dieState,setDieState]= React.useState(newDice())
   //  setTenzies(dieState.every((dice,index,array)=>{dice.number==array[0].number&&dice.isHeld})
   }
   React.useEffect(function(){won()},[dieState])
-  function yay(){
-    var audio = new Audio(yay);
+  function cheers(){
+  var audio = new Audio(yay);
   tenzies&&audio.play();
   }
-  React.useEffect(function(){yay()},[tenzies])
+  React.useEffect(function(){cheers()},[tenzies])
 
 
 function Roll(){
