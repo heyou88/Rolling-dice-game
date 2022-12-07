@@ -4,6 +4,9 @@ import {nanoid} from "nanoid"
 // import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 // import  useEffect  from 'react';
+import yay from '../assets/yay-6326.mp3'
+import rolling from '../assets/rolling-dice-2-102706.mp3'
+
 export default function App (){
 
 function newDice(){
@@ -47,14 +50,14 @@ const[dieState,setDieState]= React.useState(newDice())
   }
   React.useEffect(function(){won()},[dieState])
   function yay(){
-    var audio = new Audio('./src/assets/yay-6326.mp3');
+    var audio = new Audio(yay);
   tenzies&&audio.play();
   }
   React.useEffect(function(){yay()},[tenzies])
 
 
 function Roll(){
-  var audio = new Audio('./src/assets/rolling-dice-2-102706.mp3');
+  var audio = new Audio(rolling);
   audio.play();
   setDieState(prevState=>
     prevState.map(dice=> {
