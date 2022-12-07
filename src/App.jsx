@@ -44,9 +44,13 @@ const[dieState,setDieState]= React.useState(newDice())
   function won(){
    setTenzies(()=>dieState.every((dice,index,array) => dice.number === array[0].number&&dice.isHeld))?true:false
   //  setTenzies(dieState.every((dice,index,array)=>{dice.number==array[0].number&&dice.isHeld})
-    tenzies&&console.log("you won")
   }
   React.useEffect(function(){won()},[dieState])
+  function yay(){
+    var audio = new Audio('./src/assets/yay-6326.mp3');
+  tenzies&&audio.play();
+  }
+  React.useEffect(function(){yay()},[tenzies])
 
 
 function Roll(){
