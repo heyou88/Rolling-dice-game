@@ -1,11 +1,9 @@
 import React from "react"
 import Die from "./component/die"
 import {nanoid} from "nanoid"
-// import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
-// import  useEffect  from 'react';
-import yay from '../assets/yay-6326.mp3'
-import rolling from '../assets/rolling-dice-2-102706.mp3'
+import yay from './assets/yay-6326.mp3'
+import rolling from './assets/rolling-dice-2-102706.mp3'
 
 export default function App (){
 
