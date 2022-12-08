@@ -61,7 +61,7 @@ function Roll(){
   audio.play();
   setDieState(prevState=>
     prevState.map(dice=> {
-      return dice.isHeld?dice:{...dice,number:Math.floor(Math.random()*6)}
+      return dice.isHeld?dice:{...dice,number:Math.ceil(Math.random()*6)}
     })
   )
 }
